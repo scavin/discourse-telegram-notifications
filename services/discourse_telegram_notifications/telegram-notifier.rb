@@ -29,12 +29,12 @@ module DiscourseTelegramNotifications
     end
 
     def self.doRequest(methodName, message)
-      http = Net::HTTP.new("api.telegram.org", 443)
+      http = Net::HTTP.new("t.appinn.org", 443)
       http.use_ssl = true
 
       access_token = SiteSetting.telegram_access_token
 
-      uri = URI("https://tgapi.appinn.com/bot#{access_token}/#{methodName}")
+      uri = URI("https://t.appinn.org/bot#{access_token}/#{methodName}")
 
       req = Net::HTTP::Post.new(uri, 'Content-Type' =>'application/json')
       req.body = message.to_json
